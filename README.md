@@ -78,19 +78,9 @@ Follow these instructions to get your project up and running on your local machi
    npm start
    ```
 
-## Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - example@email.com
+ Email: elfarjichaimaa1@gmail.com
 
-Project Link: [https://github.com/your_username_/Ecatalogue](https://github.com/your_username_/Ecatalogue)
 ```
-
-This version of the README maintains the original structure while integrating detailed information about how each component and technology is utilized in your project, making it comprehensive and informative.
