@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../axios'; // Your axios instance path may vary
+import axios from '../axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Container, Link, Card, CardContent } from '@material-ui/core';
 
@@ -18,23 +18,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Category() {
-  const [categories, setCategories] = useState([]); // Initialize as an empty array
+  const [categories, setCategories] = useState([]); 
   const classes = useStyles();
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/category') 
       .then(response => {
         console.log(response.data.results);
-        setCategories(response.data.results); // Assuming response.data is an array of categories
+        setCategories(response.data.results); 
       })
       .catch(error => {
         console.error('Error fetching categories:', error);
       });
   }, []);
 
-  // Check if categories is an array before calling map function
+  
   if (!Array.isArray(categories) || categories.length === 0) {
-    return <p>No categories found</p>; // Handle empty state
+    return <p>No categories found</p>; 
   }
 
   return (
