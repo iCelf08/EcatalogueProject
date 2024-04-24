@@ -56,17 +56,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        """
-        Optionally restricts the returned purchases to a given category,
-        by filtering against a `pk` query parameter in the URL.
-        """
-        queryset = super().get_queryset()
         category_id = self.kwargs.get('pk')
-
         if category_id is not None:
-        
-            queryset = queryset.filter(id=category_id).prefetch_related('product_set')
-        return queryset
+            return Category.objects.filter(id=category_id).prefetch_related('product_set')
+        else:
+            return Category.objects.all() 
+
+
 
  
  
@@ -87,5 +83,5 @@ class ProductSearch(generics.ListAPIView):
         queryset = super().get_queryset()
         search_query = self.request.query_params.get('name', None)
         if search_query:
-            queryset = queryset.filter(name__icontains=search_query)  # Case-insensitive search
+            queryset = queryset.filter(name__icontains=search_query)  
         return queryset
